@@ -2,5 +2,22 @@
 using DesignPatterns;
 
 Console.WriteLine("Hello, World!");
-SingletonDesignPattern obj = SingletonDesignPattern.getInstance();
-obj.Print();
+
+//Parallel.Invoke(() => SingletonThread1(),
+//    () => SingletonThread2());
+
+Console.ReadLine();
+
+void SingletonThread1()
+{
+    SingletonDesignPattern obj = SingletonDesignPattern.getInstance();
+    obj.Print();
+}
+
+
+void SingletonThread2()
+{
+    SingletonDesignPattern obj = SingletonDesignPattern.getInstance();
+    obj.Print();
+}
+
