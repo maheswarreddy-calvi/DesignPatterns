@@ -6,22 +6,44 @@ using System.Threading.Tasks;
 
 namespace DesignPatterns
 {
-    public class SingletonDesignPattern
+    //    public sealed class SingletonDesignPattern
+    //    {
+    //        private static int id = 0;
+    //        //  private static SingletonDesignPattern obj;
+    //        private static readonly Lazy<SingletonDesignPattern> obj =
+    //                new Lazy<SingletonDesignPattern>(() => new SingletonDesignPattern());
+
+    //        private SingletonDesignPattern()
+    //        {
+    //            id++;
+    //        }
+
+    //        public static SingletonDesignPattern getInstance()
+    //        {
+    //            //if (obj == null)
+    //            //{
+    //            //    obj = new SingletonDesignPattern();
+    //            //}
+    //            return obj.Value;
+    //        }
+
+    //        public void Print()
+    //        {
+    //            Console.WriteLine($"Value {id}");
+    //        }
+    //    }
+
+
+    public class SingletonPattern
     {
-        private static int id = 0;
-        private static SingletonDesignPattern obj;
-
-        private SingletonDesignPattern()
+        private static int id;
+        private static readonly SingletonPattern? obj = new SingletonPattern();
+        private SingletonPattern()
         {
-            id++;
+            id = id + 1;
         }
-
-        public static SingletonDesignPattern getInstance()
+        public static SingletonPattern GetInstance()
         {
-            if (obj == null)
-            {
-                obj = new SingletonDesignPattern();
-            }
             return obj;
         }
 
@@ -29,5 +51,6 @@ namespace DesignPatterns
         {
             Console.WriteLine($"Value {id}");
         }
+
     }
 }
